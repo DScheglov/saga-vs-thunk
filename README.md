@@ -65,7 +65,8 @@ import { actionHandler } from './action-handlers';
     <td valign="top">
 <pre lang="javascript">
 import { put, call } from 'redux-saga/effects';
-function* actionHandler(someId) {
+//
+export function* actionHandler(someId) {
   yield put( actions.startLoading() );
   try {
     const stuff = yield call( 
@@ -81,6 +82,8 @@ function* actionHandler(someId) {
     </td>
     <td valign="top">
 <pre lang="javascript">
+//
+//
 export async function actionHandler(someId, dispatch) {
   dispatch( actions.startLoading() );
   try {
