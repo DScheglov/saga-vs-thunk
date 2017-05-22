@@ -135,6 +135,15 @@ export function* actionHandler(someId) {
     <td valign="top">
 <pre lang="javascript">
 // ES5 sample
+// The same case: fetch doesn't support promises
+//
+//
+//
+//
+//
+//
+//
+//
 //
 export function actionHandler(someId, dispatch) {
   dispatch( actions.startLoading() );
