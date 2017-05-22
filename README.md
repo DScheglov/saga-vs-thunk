@@ -42,6 +42,8 @@
   <tr>
     <td valign="top">
 <pre lang="javascript">// Обычные
+//
+//
 {
   someAction: someId => 
     ({ type: ACTION_TYPE, payload: someId }),
@@ -51,6 +53,7 @@
     <td valign="top">
 <pre lang="javascript">// несколько необычные, но понятные
 import { actionHandler } from './action-handlers';
+//
 {
   someAction: someId => 
     actionHandler.bind(null, someId),
