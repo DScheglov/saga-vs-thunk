@@ -144,6 +144,8 @@ sagaMiddleware.run(saga);
 <pre lang="javascript">
 import thunk from 'redux-thunk';
 //
+//
+//
 const store = createStore(
   combineReducers({ ...reducers }),
   applyMiddleware([ 
