@@ -67,6 +67,7 @@ import { actionHandler } from './action-handlers';
   <tr>
     <td valign="top">
 <pre lang="javascript">
+// ES6
 import { put, call } from 'redux-saga/effects';
 //
 export function* actionHandler(someId) {
@@ -79,13 +80,14 @@ export function* actionHandler(someId) {
   } catch (err) {
     yield put( actions.error(err) );
   }
-  yield put(actions.endLoading())
+  yield put( actions.endLoading() )
 }
 </pre>
     </td>
     <td valign="top">
 <pre lang="javascript">
-// ES7 sample
+// ES7
+//
 //
 export async function actionHandler(someId, dispatch) {
   dispatch( actions.startLoading() );
@@ -103,20 +105,48 @@ export async function actionHandler(someId, dispatch) {
     </td>
   </tr>
   <tr>
-    <td>&nbsp;</tr>
+    <td>
+<pre lang="javascript">
+// ES6
+// Case when Fetch doesn't support promises
+import { put, call } from 'redux-saga/effects';
+//
+const prmFetch = url =>
+  new Promise( (resolve, reject) => {
+    fetch(url, (err, res) => {
+      !err ? resolve(res) : reject(err)
+    })
+  });
+//
+export function* actionHandler(someId) {
+  yield put( actions.startLoading() );
+  try {
+    const stuff = yield call( 
+      prmFetch(`/fetch-stuff/${someId}`)
+    );
+    yield put( actions.setStuff(stuff) );
+  } catch (err) {
+    yield put( actions.error(err) );
+  }
+  yield put( actions.endLoading() )
+}
+</pre>
+    </td>
     <td>
 <pre lang="javascript">
 // ES5 sample
 //
 export function actionHandler(someId, dispatch) {
   dispatch( actions.startLoading() );
-  fetch(`/fetch-stuff/${someId}`, function(err, stuff) {
-    !err ? 
-      dispatch( actions.setStuff(stuff) ) :
-      dispatch( actions.error(err) )
-    ;  
-    dispatch( actions.endLoading() );
-  });
+  fetch(`/fetch-stuff/${someId}`, 
+    function(err, stuff) {
+      !err ? 
+        dispatch( actions.setStuff(stuff) ) :
+        dispatch( actions.error(err) )
+      ;  
+      dispatch( actions.endLoading() );
+    }
+  );
 }
 </pre>
     </td>
