@@ -19,7 +19,7 @@
     <th colspan="2">Под капотом</th>
   </tr>
   <tr>
-    <td><code>Generators</code>, которые нравятся **Саше Нечаеву**</td>
+    <td><code>Generators</code>, которые нравятся <b>Саше Нечаеву</b></td>
     <td><code>Plain Function</code></td>
   </tr>
   <tr>
