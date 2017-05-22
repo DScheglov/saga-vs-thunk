@@ -85,7 +85,7 @@ export function* actionHandler(someId) {
     </td>
     <td valign="top">
 <pre lang="javascript">
-//
+// ES7 sample
 //
 export async function actionHandler(someId, dispatch) {
   dispatch( actions.startLoading() );
@@ -98,6 +98,25 @@ export async function actionHandler(someId, dispatch) {
     dispatch( actions.error(err) );
   }
   dispatch( actions.endLoading() );
+}
+</pre>
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</tr>
+    <td>
+<pre lang="javascript">
+// ES5 sample
+//
+export function actionHandler(someId, dispatch) {
+  dispatch( actions.startLoading() );
+  fetch(`/fetch-stuff/${someId}`, function(err, stuff) {
+    !err ? 
+      dispatch( actions.setStuff(stuff) ) :
+      dispatch( actions.error(err) )
+    ;  
+    dispatch( actions.endLoading() );
+  });
 }
 </pre>
     </td>
