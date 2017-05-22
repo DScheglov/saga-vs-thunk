@@ -105,7 +105,7 @@ export async function actionHandler(someId, dispatch) {
     </td>
   </tr>
   <tr>
-    <td>
+    <td valign="top">
 <pre lang="javascript">
 // ES6
 // Case when Fetch doesn't support promises
@@ -132,7 +132,7 @@ export function* actionHandler(someId) {
 }
 </pre>
     </td>
-    <td>
+    <td valign="top">
 <pre lang="javascript">
 // ES5 sample
 //
